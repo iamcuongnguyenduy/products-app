@@ -1,0 +1,23 @@
+<h2>Product List</h2>
+<!-- <ul>
+  <li (click)="selectedProduct = 'Webcam HP'">Webcam</li>
+  <li (click)="selectedProduct = 'Microphone Dell'">Microphone</li>
+  <li (click)="selectedProduct = 'Wireless Keyboard Logi'">Wireless Keyboard</li>
+</ul> -->
+<button (click)="loadProduct()">Load Product</button>
+<button (click)="clearProduct()">Clear Product</button>
+<ul>
+  <li *ngFor ="let product of products" (click) ="selectedProduct = product">{{product.name}}</li>
+</ul>
+<!-- <app-product-detail [inputProduct]="selectedProduct" (bought)="onBuy()"></app-product-detail> -->
+<app-product-detail
+  *ngIf="selectedProduct; else noProduct"
+  [product]="selectedProduct"
+  (bought)="onBuy()">
+</app-product-detail>
+<ng-template #noProduct>
+  <p>No product selected!</p>
+</ng-template>
+
+<app-favorite [is-favorite] = "post.favorite" (change) = "onChangedFavorite($event)"></app-favorite>
+<!-- <app-favorite></app-favorite> -->

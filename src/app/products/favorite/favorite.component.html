@@ -1,0 +1,12 @@
+<div class = "glyphicon"
+    [class.glyphicon-star] = "isFavorite"
+    [class.glyphicon-star-empty] = "!isFavorite"
+    (click)="onClick()"
+></div>
+
+<div>
+    <h3>Favorites products</h3>
+    <ul>
+        <li *ngFor="let product of products|slice:1:3">{{product.name}}</li>
+    </ul>
+</div>

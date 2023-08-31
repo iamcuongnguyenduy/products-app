@@ -1,0 +1,33 @@
+<h2>Product Details</h2>
+<h4>{{product.name}}</h4>
+<div [ngSwitch]="product.name">
+    <p *ngSwitchCase="'Webcam'">
+        This is used for video screen
+    </p>
+    <p *ngSwitchCase="'Microphone'">
+        This is used for microphone 
+    </p>
+    <p *ngSwitchDefault>This is used for general purpose</p>
+</div>
+<h4>{{product.price|currency:'USD'}}</h4>
+<button
+    [ngStyle]="{
+        'backgroundColor': isActive? 'blue':'gray',
+        'color': isActive? 'white' :'black',
+        'fontWeight': isActive? 'bold':'normal'
+    }"
+
+    (click)="buy($event)"   
+>Buy now</button>
+
+
+
+<br>
+<!-- <input #email (keyup.enter)="onKeyUp(email.value)" />  -->
+<input [(ngModel)] ="email" (keyup.enter) = "onKeyUp()" />
+<br>
+
+<!-- 
+[style.backgroundColor]="isActive ? 'blue': 'gray'"
+[style.color] = "isActive ? 'white' : 'black'"
+[style.fontWeight]="isActive ? 'bold': 'normal'" -->
