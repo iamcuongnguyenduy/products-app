@@ -21,6 +21,10 @@ export class ProductsService {
         {
           name: 'Wireless Keyboard',
           price: 100
+        },
+        {
+          name: 'Laptop',
+          price: 1000
         }
       ]
   }
